@@ -16,7 +16,8 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3001", 
-                   "http://localhost:3002"],
+                   "http://localhost:3002"
+                   "https://cms-backend-qfji.vercel.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
