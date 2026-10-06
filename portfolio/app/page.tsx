@@ -9,7 +9,7 @@ export default function PortfolioPage() {
     const [experience, setExperience] = useState<any[]>([]);
 
     useEffect(() => {
-        fetch("http://localhost:8000/about")
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/about`)
             .then((res) => res.json())
             .then((data) => {
                 // Fix: Handle case if backend returns an array instead of single object
@@ -21,22 +21,22 @@ export default function PortfolioPage() {
             })
             .catch((err) => console.error("Error fetching about:", err));
 
-        fetch("http://localhost:8000/skills")
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/skills`)
             .then((res) => res.json())
             .then((data) => setSkills(Array.isArray(data) ? data : []))
             .catch((err) => console.error("Error fetching skills:", err));
 
-        fetch("http://localhost:8000/projects")
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/projects`)
             .then((res) => res.json())
             .then((data) => setProjects(Array.isArray(data) ? data : []))
             .catch((err) => console.error("Error fetching projects:", err));
 
-        fetch("http://localhost:8000/testimonials")
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/testimonials`)
             .then((res) => res.json())
             .then((data) => setTestimonials(Array.isArray(data) ? data : []))
             .catch((err) => console.error("Error fetching testimonials:", err));
 
-        fetch("http://localhost:8000/experience")
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/experience`)
             .then((res) => res.json())
             .then((data) => setExperience(Array.isArray(data) ? data : []))
             .catch((err) => console.error("Error fetching experience:", err));
